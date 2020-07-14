@@ -16,7 +16,7 @@ spring:
       ddl-auto: none
 
   datasource:
-    url: jdbc:mysql:thin://localhost:3306/messagegateway
+    url: jdbc:mysql:thin://messagegateway:3306/messagegateway
     username: root
     password: skdcnwauicn2ucnaecasdsajdnizucawencascdca
     driver-class-name: org.drizzle.jdbc.DrizzleDriver
