@@ -18,7 +18,7 @@
 
 # NB: Travis CI (dist: bionic) supports up to v3.7
 # (unless we'd install a more recent version in .travis.yml)
-version: '3.7'
+version: "3.7"
 services:
   # Backend service
   messagemysql:
@@ -29,7 +29,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: skdcnwauicn2ucnaecasdsajdnizucawencascdca
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "--password=skdcnwauicn2ucnaecasdsajdnizucawencascdca" ]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "--password=skdcnwauicn2ucnaecasdsajdnizucawencascdca",
+        ]
       timeout: 10s
       retries: 10
     ports:
