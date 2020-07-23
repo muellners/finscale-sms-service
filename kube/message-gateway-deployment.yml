@@ -39,36 +39,16 @@ spec:
         - name: sms-server
           image: muellners/finscale-sms-service:latest
           env:
-            - name: DRIVERCLASS_NAME
+            - name: spring.datasource.driverClassName
               value: org.drizzle.jdbc.DrizzleDriver
-            - name: PROTOCOL
-              value: jdbc
-            - name: SUB_PROTOCOL
-              value: mysql:thin
-            - name: mysql_driver
-              value: org.drizzle.jdbc.DrizzleDriver
-            - name: mysql_db_url
+            - name: spring.datasource.url
               value: jdbc:mysql:thin://messagemysql:3306/messagegateway
-            - name: mysql_db_uid
+            - name: spring.datasource.username
               valueFrom:
                 secretKeyRef:
                   name: message-db-secret
                   key: username
-            - name: mysql_db_pwd
-              valueFrom:
-                secretKeyRef:
-                  name: message-db-secret
-                  key: password
-            - name: MYSQL_HOSTNAME
-              value: messagemysql
-            - name: MYSQL_PORT
-              value: '3306'
-            - name: MYSQL_DB_UID
-              valueFrom:
-                secretKeyRef:
-                  name: message-db-secret
-                  key: username
-            - name: MYSQL_DB_PWD
+            - name: spring.datasource.password
               valueFrom:
                 secretKeyRef:
                   name: message-db-secret
